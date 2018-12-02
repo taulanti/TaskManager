@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graphic Design</title>
+    <link rel="stylesheet" type="text/css" href="CSS/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="JS/login.js"></script>
+    <script src="JS/shtoPunetor_Ajax.js"></script>
+    <script src="JS/shtoKlient_Ajax.js"></script>
+    <script src="JS/klientetForm.js"></script>
+    <script src="JS/punetoretForm.js"></script>
+    <script src="JS/kerkesatForm.js"></script>
+    <script src="JS/showKlient.js"></script>
+    <script src="JS/loadKlientet.js"></script>
+    <script src="JS/loadPunetor.js"></script>
+    <script src="JS/loadKerkesat.js"></script>
+    <script src="JS/loadFinished.js"></script>
+    <script src="JS/loadSelectKlient.js"></script>
+    <script src="JS/loadLoggedIn.js"></script>
+    <script src="JS/userLevelControl.js"></script>
+    <script src="JS/logOut.js"></script>
+    <script src="JS/DnD_Events.js"></script>
+    <script src="JS/deleteRequest.js"></script>
+    <script src="JS/deleteRequestScope.js"></script>
+</head>
+<body>
+<div id="Header">
+    <h1>Graphic Design</h1>
+</div>
+<button class="bShto" style="margin:1px 0px" onclick="userForm()">SHTO KLIENT</button>
+<button class="bShto" style="margin:1px 0px" onclick="showKlient()">LISTA E KLIENTEVE</button>
+<div id="shtoKlient">
+    <form id="formKlient" method="post" action="PHP/Client.php">
+        Emri
+        <input type="text" name="emri">
+        Mbiemri
+        <input type="text" name="mbiemri">
+        Produkti
+        <input type="text" name="produkti">
+        <input type="submit" value="Shto Klient" style="padding:5px;margin-left:50px;margin-top:15px;">
+    </form>
+    <p id="Klient_result"></p>
+</div>
+<div id="showKlient">
+    <ul id="showKlient_ul">
+    </ul>
+</div>
+<div id="dropdown">
+    <button id="dropbtn"></button>
+    <div id="dropdown-content">
+        <a id="logOut" href="http://localhost:63342/Graphic%20Design/index.html">Log Out</a>
+    </div>
+</div>
+<div id="main">
+    <h3 class="columnHeader">KERKESA</h3>
+    <h3 class="columnHeader" style="margin-left:35.5%">NE PROCES</h3>
+    <h3 class="columnHeader" style="margin-left:60.5%;">TE PERFUNDUARA</h3>
+    <div id="columnKerkesat" class="columns" ondrop="drag_drop_request(event)" ondragover="allowDrop(event)">
+
+    </div>
+    <div id="columnPunetoret" class="columns">
+
+    </div>
+    <div id="columnPerfunduara" class="columns" ondrop="drag_drop_finished(event)" ondragover="allowDrop(event)">
+
+    </div>
+    <button class="bShto" id="shtoKerkesebtn" onclick="shtoKerkese()">SHTO KERKESE</button>
+    <button class="bShto" style="margin:5px 101px;" onclick="shtoPunetor()">SHTO PUNETOR</button>
+    <div id="shtoKerkese">
+        <form id="formKerkese" method="post" action="PHP/Request.php">
+            Titulli
+            <input type="text" name="titulli">
+            Departamenti
+            <input type="text" name="departamenti">
+            Klienti<br>
+            <select name="klientet" id="selectKlientet"></select><br>
+            <input type="submit" value="Shto Kerkese" style="padding:5px;margin-left:40px;margin-top:15px;">
+        </form>
+        <p id="Kerkese_result"></p>
+    </div>
+    <div id="shtoPunetor">
+        <form id="formPunetor" method="post" action="PHP/PunetorPHP.php">
+            Emri
+            <input type="text" name="emri">
+            Mbiemri
+            <input type="text" name="mbiemri">
+            Departamenti
+            <input type="text" name="departamenti">
+            <input type="submit" value="Shto Punetor" style="padding:5px;margin-left:45px;margin-top:15px;">
+        </form>
+        <p id="Punetor_result"></p>
+    </div>
+</div>
+<footer>
+
+</footer>
+</body>
+</html>
